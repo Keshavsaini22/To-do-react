@@ -9,32 +9,25 @@ uuidv4();
 function ListPage() {
   const [todos,setTodos]=useState([])
   const addto= (todo) =>{
-    setTodos([...todos,{task:todo,comp:false,isEditing:false}])
+    setTodos([...todos,{id: uuidv4(), task: todo, completed: false, isEditing: false}])
     console.log(todos)
   }
-  const handleDeleteTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos?.splice(index, 1);
-    setTodos(newTodos);
-  };
+  const handleDeleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
 
-  const handleToggleTodo = (index) => {
-    console.log(index)
+  const handleToggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  }
 
-    const newTodos = [...todos];
-    newTodos[index].comp = !todos[index].comp;
-    setTodos(newTodos);
-  };
-
-  const edittodo = (index) => {
-    // setTodos(
-    //   todos.map((todo) =>
-    //     todo[index] === index ? { ...todo, isEditing: !todo.isEditing } : todo
-    //   )
-    // );
-    const newTodos = [...todos];
-    newTodos[index].isEditing = !todos[index].isEditing;
-    setTodos(newTodos);
+  const editTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+      )
+    );
   }
 
   const edittask = (task, id) => {
@@ -52,7 +45,7 @@ function ListPage() {
 
           todo.isEditing?(<Edit edittodo={edittask} task={todo} index={index}/>):
 
-        <List task={todo} key={index} index={index} handleDeleteTodo={handleDeleteTodo} handleToggleTodo={handleToggleTodo} edittodo={edittodo}/>))}
+        <List task={todo} key={index} index={index} handleDeleteTodo={handleDeleteTodo} handleToggleTodo={handleToggleTodo} editTodo={editTodo}/>))}
     </div>
     </>
   )

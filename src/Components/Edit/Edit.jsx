@@ -7,7 +7,7 @@ const Edit = ({ edittodo,task,index }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (value.trim() != "") {
-            edittodo(value,task[index])
+            edittodo(value,index)
             setvalue("")
         }
 
