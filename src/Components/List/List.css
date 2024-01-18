@@ -1,0 +1,28 @@
+.main{
+    padding: 10px;
+    margin: 10px;
+    max-width: 500px ;
+    width: 500px;
+    /* border: 3px solid rgb(192, 192, 245); */
+    border-radius: 8px;
+    display: flex;
+    background-color: rgb(212, 232, 255);
+
+}
+h3{
+    display: flex;
+    border: 1px solid blueviolet;
+    border-radius: 6px;
+    flex: 70%;
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    flex-wrap: wrap;
+}
+.btn{
+    margin: 5px;
+    color: blueviolet;
+    background-color: rgb(192, 192, 245);
+    border: none;
+    border-radius: 4px;
+}
