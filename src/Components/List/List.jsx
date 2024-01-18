@@ -14,7 +14,7 @@ function List({task,index,handleDeleteTodo,handleToggleTodo,editTodo}) {
                 size="large" color="secondary" onClick={() => handleToggleTodo(task.id)}/>
 
                 <h3 style= {{textDecoration :  task.completed ?"line-through":"" }}>{task.task}</h3>
-                <button className='btn' onClick={()=>editTodo(index)}><EditIcon className='edit' /></button>
+                <button className='btn' onClick={()=>editTodo(task.id)}><EditIcon className='edit' /></button>
                 <button className='btn'onClick={() => handleDeleteTodo(task.id)}><DeleteIcon className='delete' /></button>
             </div>
         </>
